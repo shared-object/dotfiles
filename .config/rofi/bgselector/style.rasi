@@ -11,6 +11,32 @@ configuration {
     font: "0xProto Nerd Font 10";
     margin: 0;
     padding: 0;
+
+    background:                  #121318;
+    background-color:            transparent;
+    foreground:                  #dcdfe6;
+    text-color:                  #dcdfe6;
+
+    normal-background:           #181a21;
+    normal-foreground:           #dcdfe6;
+    alternate-normal-background: #181a21;
+    alternate-normal-foreground: #dcdfe6;
+    selected-normal-background:  #282c37;
+    selected-normal-foreground:  #ffffff;
+
+    active-background:           #181a21;
+    active-foreground:           @accent;
+    alternate-active-background: #181a21;
+    alternate-active-foreground: @accent;
+    selected-active-background:  #282c37;
+    selected-active-foreground:  #ffffff;
+
+    urgent-background:           #181a21;
+    urgent-foreground:           #e06c75;
+    alternate-urgent-background: #181a21;
+    alternate-urgent-foreground: #e06c75;
+    selected-urgent-background:  #282c37;
+    selected-urgent-foreground:  #ffffff;
 }
 
 window {
@@ -69,6 +95,7 @@ listview {
     dynamic: true;
     layout: vertical;
     padding: 4px 0px;
+    border: 0px;
 }
 
 element {
@@ -82,9 +109,58 @@ element {
     children: [ element-icon, element-text ];
 }
 
-element selected {
-    background-color: #252836;
+element normal.normal {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: #dcdfe6;
+}
+
+element normal.active {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: @accent;
+}
+
+element normal.urgent {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: #e06c75;
+}
+
+element selected.normal {
+    background-color: #282c37;
     border-color: @accent;
+    text-color: #ffffff;
+}
+
+element selected.active {
+    background-color: #282c37;
+    border-color: @accent;
+    text-color: #ffffff;
+}
+
+element selected.urgent {
+    background-color: #282c37;
+    border-color: #e06c75;
+    text-color: #ffffff;
+}
+
+element alternate.normal {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: #dcdfe6;
+}
+
+element alternate.active {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: @accent;
+}
+
+element alternate.urgent {
+    background-color: #181a21;
+    border-color: #242733;
+    text-color: #e06c75;
 }
 
 element-icon {
@@ -97,7 +173,7 @@ element-icon {
 
 element-text {
     background-color: transparent;
-    text-color: #dcdfe6;
+    text-color: inherit;
     horizontal-align: 0.5;
     vertical-align: 0.5;
     font: "0xProto Nerd Font 9.5";
