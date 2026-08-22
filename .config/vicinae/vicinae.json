@@ -1,0 +1,23 @@
+{
+    "closeOnFocusLoss": true,
+    "considerPreedit": false,
+    "faviconService": "google",
+    "font": {
+        "size": 11
+    },
+    "keybinding": "default",
+    "keybinds": {
+    },
+    "popToRootOnClose": true,
+    "rootSearch": {
+        "searchFiles": true
+    },
+    "theme": {
+        "name": "wallust"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 1,
+        "rounding": 0
+    }
+}

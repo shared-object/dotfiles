@@ -1,0 +1,12 @@
+# Binaries
+.config/waybar/scripts/layout_waybar
+.config/yambar/scripts/layout
+.config/yambar/scripts/layout_waybar
+.config/yambar/scripts/mic
+.config/yambar/scripts/volume
+*.o
+
+# Cache / Temp
+.cache/
+thumbnails/
+*.log

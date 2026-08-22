@@ -1,0 +1,80 @@
+[meta]
+name = "Vicinae Wallust"
+description = "Vicinae theme dynamically generated from wallpaper colors"
+variant = "dark"                              # "dark" | "light": impacts what icon to show in some circumstances
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "{{color12}}"
+accent_foreground = "{{background}}"
+background = "{{background}}"
+foreground = "{{foreground}}"
+secondary_background = "{{color0}}"
+border = "{{color8}}"
+
+[colors.main_window]
+border = "{{color8}}"
+footer = { background = "colors.core.secondary_background" }
+
+[colors.settings_window]
+border = "{{color8}}"
+
+[colors.accents]
+blue = "{{color4}}"
+green = "{{color2}}"
+magenta = "{{color5}}"
+orange = "{{color9}}"
+red = "{{color1}}"
+yellow = "{{color3}}"
+cyan = "{{color6}}"
+purple = "{{color13}}"
+
+# For now, shortcuts cannot have their own dedicated background
+[colors.shortcut]
+border = "colors.core.border"
+
+[colors.text]
+default = "colors.core.foreground"
+muted = "{{color7}}"
+danger = "{{color1}}"
+success = "{{color2}}"
+placeholder = "{{color8}}"
+selection = { background = "{{color12}}", foreground = "{{background}}" }
+
+[colors.text.links]
+default = "{{color11}}"
+visited = "{{color13}}"
+
+[colors.input]
+border = "{{color8}}"
+border_focus = "{{color12}}"
+border_error = "{{color1}}"
+
+[colors.button.primary]
+background = "{{color0}}"
+foreground = "{{foreground}}"
+hover = { background = "#bb{{color0|strip}}" }
+focus = { outline = "colors.core.accent" }
+
+[colors.list.item.hover]
+foreground = "{{foreground}}"
+secondary_foreground = "{{foreground}}"
+
+[colors.list.item.selection]
+background = "{{color0}}"
+foreground = "{{foreground}}"
+secondary_background = "{{color0}}"
+secondary_foreground = "{{foreground}}"
+
+[colors.grid.item]
+background = "{{color0}}"
+hover = { outline = "{{foreground}}" }
+selection = { outline = "{{foreground}}" }
+
+[colors.scrollbars]
+background = "{{color8}}"
+
+[colors.loading]
+bar = "{{color12}}"
+spinner = "{{foreground}}"
+

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Toggle wshowkeys on-screen keypress display
+if pidof wshowkeys >/dev/null 2>&1; then
+    killall wshowkeys
+else
+    wshowkeys -a bottom -m 50 &
+fi

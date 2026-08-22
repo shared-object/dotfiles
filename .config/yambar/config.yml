@@ -1,0 +1,116 @@
+# ==============================================================================
+# Yambar configuration templated by Wallust (Translucent / Floating theme)
+# ==============================================================================
+
+# Wallust Color Palette Anchors (with customizable alpha transparency)
+colors:
+  bg: &bg 010101b3       # ~70% opacity for bar background
+  bg_solid: &bg_solid 010101ff
+  fg: &fg F7F9FBff
+  c0: &c0 010101ff
+  c1: &c1 161719ff
+  c2: &c2 414143ff
+  c3: &c3 646567ff
+  c4: &c4 8E8F91ff
+  c5: &c5 BBBCBEff
+  c6: &c6 EEF0F2ff
+  c7: &c7 F5F7F9ff
+  c8: &c8 9C9EA0ff
+  c9: &c9 161719ff
+  c10: &c10 414143ff
+  c11: &c11 646567ff
+  c12: &c12 8E8F91ff
+  c13: &c13 BBBCBEff
+  c14: &c14 EEF0F2ff
+  c15: &c15 F1F2F3ff
+
+bar:
+  height: 30
+  location: top
+  background: *bg
+  foreground: *fg
+  font: "0xProto Nerd Font:size=11"
+
+  border:
+    width: 0
+    margin: 6
+    top-margin: 6
+    bottom-margin: 0
+    left-margin: 8
+    right-margin: 8
+
+  left:
+    - clock:
+        time-format: "%H:%M"
+        date-format: "%a, %d %b"
+        content:
+          - string:
+              text: " 󰃭 {date} "
+              foreground: *c4
+          - string:
+              text: " 󰥔 {time} "
+              foreground: *c6
+
+  center:
+    - script:
+        path: ~/.config/yambar/scripts/layout
+        args: []
+        content:
+          string:
+            text: " {layout} "
+            foreground: *c5
+
+  right:
+    - cpu:
+        poll-interval: 2000
+        content:
+          string:
+            text: " 󰻠 {cpu}% "
+            foreground: *c2
+
+    - mem:
+        poll-interval: 5000
+        content:
+          string:
+            text: " 󰍛 {percent_used}% "
+            foreground: *c6
+
+    - script:
+        path: ~/.config/yambar/scripts/mic
+        args: []
+        content:
+          string:
+            text: " {mic} "
+            foreground: *c1
+
+    - script:
+        path: ~/.config/yambar/scripts/volume
+        args: []
+        content:
+          string:
+            text: " {volume} "
+            foreground: *c4
+
+    - battery:
+        name: BAT0
+        poll-interval: 2000
+        content:
+          map:
+            default: {string: {text: " 󰁹 {capacity}% ", foreground: *c3}}
+            conditions:
+              state == charging: {string: {text: " 󰂄 {capacity}% ", foreground: *c2}}
+              state == full: {string: {text: " 󰁹 100% ", foreground: *c2}}
+              state == discharging:
+                ramp:
+                  tag: capacity
+                  items:
+                    - string: {text: " 󰁺 {capacity}% ", foreground: *c1}
+                    - string: {text: " 󰁻 {capacity}% ", foreground: *c1}
+                    - string: {text: " 󰁼 {capacity}% ", foreground: *c3}
+                    - string: {text: " 󰁽 {capacity}% ", foreground: *c3}
+                    - string: {text: " 󰁾 {capacity}% ", foreground: *c3}
+                    - string: {text: " 󰁿 {capacity}% ", foreground: *c2}
+                    - string: {text: " 󰂀 {capacity}% ", foreground: *c2}
+                    - string: {text: " 󰂁 {capacity}% ", foreground: *c2}
+                    - string: {text: " 󰂂 {capacity}% ", foreground: *c2}
+                    - string: {text: " 󰁹 {capacity}% ", foreground: *c2}

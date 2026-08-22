@@ -1,0 +1,176 @@
+# ==============================================================================
+# Mako notification daemon configuration (Material Translucent theme)
+# Templated by Wallust
+# ==============================================================================
+
+# [ GENERAL OPTIONS ]
+max-history=10
+markup=1
+actions=1
+history=1
+default-timeout=5000
+sort=+time
+max-visible=5
+layer=overlay
+anchor=top-right
+
+# [ BINDINGS ]
+on-button-left=invoke-default-action
+on-button-middle=dismiss-group
+on-button-right=dismiss
+on-touch=invoke-default-action
+
+# [ MATERIAL STYLE & GEOMETRY ]
+font=0xProto Nerd Font 10
+width=360
+height=180
+margin=12
+outer-margin=0
+padding=14,16
+
+# Translucent surface (~70% opacity for distinct glass look) & rounded Material cards
+background-color=#010101b3
+text-color=#F7F9FBff
+border-color=#8E8F91b3
+border-size=2
+border-radius=14
+progress-color=source #8E8F91
+
+# [ ICONS ]
+icons=1
+max-icon-size=48
+icon-location=left
+
+# [ FORMATTING ]
+format=<b>%s</b>\n%b
+text-alignment=left
+
+# ------------------------------------------------------------------------------
+# Urgencies
+# ------------------------------------------------------------------------------
+[urgency=low]
+background-color=#01010199
+text-color=#F5F7F9ff
+border-color=#9C9EA080
+default-timeout=3000
+
+[urgency=normal]
+background-color=#010101b3
+text-color=#F7F9FBff
+border-color=#8E8F91b3
+default-timeout=5000
+
+[urgency=high]
+background-color=#010101cc
+text-color=#161719ff
+border-color=#161719ff
+default-timeout=0
+
+[urgency=critical]
+background-color=#010101d9
+text-color=#161719ff
+border-color=#161719ff
+default-timeout=0
+
+# ------------------------------------------------------------------------------
+# On-Screen Display (OSD) Sliders / Popups
+# ------------------------------------------------------------------------------
+[app-name=Volume]
+anchor=bottom-center
+text-alignment=center
+width=220
+height=60
+border-size=2
+border-radius=16
+border-color=#8E8F9180
+background-color=#010101a6
+text-color=#F7F9FBff
+progress-color=source #8E8F91
+outer-margin=0, 0, 30, 0
+margin=10
+padding=8,16
+layer=overlay
+ignore-timeout=1
+default-timeout=1000
+format=<b>%s</b>
+
+[app-name="Volume Mute"]
+anchor=bottom-center
+text-alignment=center
+width=220
+height=60
+border-size=2
+border-radius=16
+border-color=#16171980
+background-color=#010101a6
+text-color=#161719ff
+progress-color=source #161719
+outer-margin=0, 0, 30, 0
+margin=10
+padding=8,16
+layer=overlay
+ignore-timeout=1
+default-timeout=1000
+format=<b>%s</b>
+
+[app-name=Microphone]
+anchor=bottom-center
+text-alignment=center
+width=220
+height=60
+border-size=2
+border-radius=16
+border-color=#41414380
+background-color=#010101a6
+text-color=#F7F9FBff
+progress-color=source #414143
+outer-margin=0, 0, 30, 0
+margin=10
+padding=8,16
+layer=overlay
+ignore-timeout=1
+default-timeout=1000
+format=<b>%s</b>
+
+[app-name=Brightness]
+anchor=bottom-center
+text-alignment=center
+width=220
+height=60
+border-size=2
+border-radius=16
+border-color=#64656780
+background-color=#010101a6
+text-color=#F7F9FBff
+progress-color=source #646567
+outer-margin=0, 0, 30, 0
+margin=10
+padding=8,16
+layer=overlay
+ignore-timeout=1
+default-timeout=1000
+format=<b>%s</b>
+
+# ------------------------------------------------------------------------------
+# Media Players
+# ------------------------------------------------------------------------------
+[app-name="spotify-player"]
+max-icon-size=64
+border-radius=14
+border-color=#41414380
+background-color=#010101b3
+
+[app-name="Music Player"]
+text-alignment=left
+ignore-timeout=1
+margin=10
+border-radius=14
+border-color=#BBBCBE80
+background-color=#010101b3
+layer=overlay
+
+# ------------------------------------------------------------------------------
+# Hidden
+# ------------------------------------------------------------------------------
+[hidden=true]
+invisible=1
