@@ -580,30 +580,51 @@ run_wallust_theme() {
   local -r wallust_theme="$1"
   local -r wallpaper_path="$2"
 
-  log_info "Running wallust with theme: $wallust_theme for wallpaper: $wallpaper_path"
+  log_info "Running wallust to extract dynamic colors for: $wallpaper_path"
 
-  if [[ "$wallust_theme" == "random" ]]; then
-    # Just run wallust on the wallpaper without a specific theme if unknown
-    log_info "Running wallust in auto mode for: $wallpaper_path"
-    if ! wallust run "$wallpaper_path" --dynamic-threshold 2> /dev/null; then
-      log_warn "Wallust theme generation failed, continuing..."
+  # Always run wallust run directly on the wallpaper to generate dynamic colors and write templates
+  if ! wallust run "$wallpaper_path" --dynamic-threshold 2> /dev/null; then
+    if ! wallust run "$wallpaper_path" 2> /dev/null; then
+      log_warn "Wallust run failed, trying theme preset: $wallust_theme"
+      wallust theme "$wallust_theme" 2> /dev/null || log_error "Wallust generation failed completely"
     else
-      log_success "Wallust theme generation completed"
+      log_success "Wallust palette generated from wallpaper"
     fi
   else
-    # Try to apply the specific theme if available
-    log_info "Applying specific wallust theme: $wallust_theme"
-    if ! wallust theme "$wallust_theme" 2> /dev/null; then
-      log_warn "Specific wallust theme failed, falling back to auto-generation for: $wallpaper_path"
-      # Fallback to running wallust on the wallpaper directly
-      if ! wallust run "$wallpaper_path" --dynamic-threshold 2> /dev/null; then
-        log_warn "Wallust generation failed completely, continuing..."
-      else
-        log_success "Wallust fallback theme generation completed"
-      fi
-    else
-      log_success "Wallust specific theme applied: $wallust_theme"
-    fi
+    log_success "Wallust dynamic palette generated from wallpaper"
+  fi
+}
+
+reload_desktop_components() {
+  log_info "Reloading desktop components with new color palette..."
+
+  # 1. Reload Waybar (SIGUSR2 reloads stylesheets without closing the bar)
+  if pgrep -x waybar > /dev/null 2>&1; then
+    pkill -SIGUSR2 -x waybar 2> /dev/null || true
+    log_success "Waybar reloaded"
+  fi
+
+  # 2. Reload / restart Yambar if running
+  if pgrep -x yambar > /dev/null 2>&1; then
+    pkill -x yambar 2> /dev/null || true
+    yambar &
+    log_success "Yambar reloaded"
+  fi
+
+  # 3. Reload Mako notifications
+  if command -v makoctl > /dev/null 2>&1; then
+    makoctl reload 2> /dev/null || log_warn "Failed to reload mako"
+    log_success "Mako reloaded"
+  fi
+
+  # 4. Set Vicinae theme
+  if command -v vicinae > /dev/null 2>&1; then
+    vicinae theme set wallust 2> /dev/null || log_warn "Failed to set vicinae theme"
+  fi
+
+  # 5. Reload Foot terminal colors
+  if pgrep -x foot > /dev/null 2>&1; then
+    pkill -SIGUSR1 -x foot 2> /dev/null || true
   fi
 }
 
@@ -709,18 +730,7 @@ main() {
     run_wallust_theme "$wallust_theme" "$wallpaper_path"
     update_niri_config
     update_vscode_theme
-
-    if command -v vicinae > /dev/null 2>&1; then
-      vicinae theme set wallust || log_warn "Failed to set vicinae theme"
-    else
-      log_warn "vicinae not found, skipping vicinae theme update"
-    fi
-
-    if command -v makoctl > /dev/null 2>&1; then
-      makoctl reload 2> /dev/null || log_warn "Failed to reload mako"
-    else
-      log_warn "makoctl not available, skipping notification daemon reload"
-    fi
+    reload_desktop_components
 
     save_theme_state "$detected_theme" "$wallpaper_variation" "$wallpaper_path"
 
