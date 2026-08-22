@@ -8,7 +8,10 @@ echo "=========================================="
 echo "   Niri Wayland Dotfiles Installer"
 echo "=========================================="
 
-echo "[1/4] Creating ~/.config directory..."
+echo "[1/4] Initializing submodules & creating ~/.config directory..."
+if [ -d "$DOTFILES_DIR/.git" ]; then
+    git -C "$DOTFILES_DIR" submodule update --init --recursive 2>/dev/null || true
+fi
 mkdir -p "$CONFIG_DIR"
 
 echo "[2/4] Copying configuration files..."

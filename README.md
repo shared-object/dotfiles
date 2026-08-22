@@ -22,6 +22,7 @@
 | **Lock Screen** | [gtklock](https://github.com/jovanlanik/gtklock) | Экран блокировки с поддержкой модулей и стилей |
 | **Keypress OSD** | [wshowkeys](https://github.com/ammgws/wshowkeys) | Экранное отображение нажатых клавиш (`MOD+SHIFT+V`) |
 | **Browser** | [Luakit](https://luakit.github.io/) | Клавиатурный WebKit-браузер |
+| **Editor** | [Neovim](https://neovim.io/) | Конфигурация [kickstart.nvim](https://github.com/shared-object/kickstart.nvim) (Git Submodule) |
 | **Audio / Video** | [PipeWire](https://pipewire.org/) + WirePlumber | Современный звуковой сервер с прямым IPC в статус-бары |
 
 ---
@@ -85,16 +86,18 @@ sudo xbps-install -Sy \
 Склонируйте репозиторий и запустите скрипт `install.sh`:
 
 ```bash
-git clone <URL_РЕПОЗИТОРИЯ> ~/dotfiles
+git clone --recurse-submodules <URL_РЕПОЗИТОРИЯ> ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
 
 Скрипт автоматически:
-1. Создаст директории в `~/.config/`
-2. Скопирует конфигурационные файлы
-3. Выдаст права на исполнение всем вспомогательным скриптам
-4. Скомпилирует все вспомогательные C-бинарники для статус-баров (`layout`, `layout_waybar`, `volume`, `mic`)
+1. Инициализирует сабмодули (`git submodule update --init --recursive`)
+2. Создаст директории в `~/.config/`
+3. Скопирует конфигурационные файлы
+4. Создаст симлинк на обои `~/Pictures/Wallpapers`
+5. Выдаст права на исполнение всем вспомогательным скриптам
+6. Скомпилирует все вспомогательные C-бинарники для статус-баров (`layout`, `layout_waybar`, `volume`, `mic`)
 
 ### Ручная сборка C-скриптов
 
@@ -139,7 +142,7 @@ spawn-at-startup "waybar"
 
 При смене обоев запускается скрипт `theme-sync.sh`, который:
 1. Анализирует изображение обоев.
-2. Генерирует с помощью `wallust` цветовые схемы для **Foot, Mako, Waybar, Yambar, Luakit, Vicinae, GTK и Zathura**.
+2. Генерирует с помощью `wallust` цветовые схемы для **Foot, Mako, Waybar, Yambar, Luakit, Vicinae, GTK, GTKLock и Zathura**.
 3. Автоматически перезагружает демоны (`makoctl reload`, `pkill -SIGUSR2 waybar`, GTK theme changes).
 
 * **Сменить обои интерактивно**: нажмите `MOD+W` (запустится `bgselector.sh` с превью).
@@ -201,6 +204,7 @@ dotfiles/
 │   ├── luakit/            # Браузер luakit
 │   ├── mako/              # Демон уведомлений (Material Translucent)
 │   ├── niri/              # Конфиг Niri и скрипты (включая toggle-showkeys)
+│   ├── nvim/              # Конфигурация Neovim (git submodule kickstart.nvim)
 │   ├── nwg-look/          # Настройки внешнего вида
 │   ├── scripts/           # Скрипты синхронизации темы, обоев и управления
 │   ├── vicinae/           # Настройки лаунчера
@@ -210,6 +214,7 @@ dotfiles/
 │   ├── xsettingsd/        # Настройки xsettingsd
 │   ├── yambar/            # Конфиг и C-скрипты PipeWire/Niri для Yambar
 │   └── zathura/           # Конфигурация PDF-ридера
+├── .gitmodules            # Конфигурация Git сабмодулей
 ├── Makefile               # Сборка всех вспомогательных C-бинарников
 ├── install.sh             # Скрипт быстрой установки
 ├── xbps-packages.txt      # Чистый список пакетов для Void Linux
