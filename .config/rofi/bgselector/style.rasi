@@ -12,37 +12,11 @@ configuration {
     font: "0xProto Nerd Font 10.5, Symbols Nerd Font 10.5";
     margin: 0;
     padding: 0;
-
-    background:                  #121318;
-    background-color:            transparent;
-    foreground:                  #dcdfe6;
-    text-color:                  #dcdfe6;
-
-    normal-background:           #181a21;
-    normal-foreground:           #dcdfe6;
-    alternate-normal-background: #181a21;
-    alternate-normal-foreground: #dcdfe6;
-    selected-normal-background:  #282c37;
-    selected-normal-foreground:  #ffffff;
-
-    active-background:           #181a21;
-    active-foreground:           @accent;
-    alternate-active-background: #181a21;
-    alternate-active-foreground: @accent;
-    selected-active-background:  #282c37;
-    selected-active-foreground:  #ffffff;
-
-    urgent-background:           #181a21;
-    urgent-foreground:           #e06c75;
-    alternate-urgent-background: #181a21;
-    alternate-urgent-foreground: #e06c75;
-    selected-urgent-background:  #282c37;
-    selected-urgent-foreground:  #ffffff;
 }
 
 window {
-    background-color: #121318;
-    text-color: #dcdfe6;
+    background-color: @bg;
+    text-color: @fg;
     border: 2px;
     border-color: @accent;
     border-radius: 16px;
@@ -60,9 +34,9 @@ mainbox {
 }
 
 inputbar {
-    background-color: #1b1d24;
+    background-color: @bg-alt;
     border: 1.5px;
-    border-color: #2c2f3b;
+    border-color: @accent;
     border-radius: 10px;
     padding: 12px 16px;
     spacing: 10px;
@@ -78,9 +52,9 @@ prompt {
 
 entry {
     background-color: transparent;
-    text-color: #ffffff;
+    text-color: @fg;
     placeholder: "Search wallpapers (Gruvbox, Nord, Catppuccin, Dark...)...";
-    placeholder-color: #6b7280;
+    placeholder-color: @fg-muted;
     font: "0xProto Nerd Font 10.5, Symbols Nerd Font 10.5";
     vertical-align: 0.5;
 }
@@ -100,9 +74,9 @@ listview {
 }
 
 element {
-    background-color: #181a21;
+    background-color: @bg-alt;
     border: 2px;
-    border-color: #242733;
+    border-color: transparent;
     border-radius: 12px;
     orientation: vertical;
     padding: 10px;
@@ -111,61 +85,61 @@ element {
 }
 
 element normal.normal {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: #dcdfe6;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @fg;
 }
 
 element normal.active {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: @accent;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @active;
 }
 
 element normal.urgent {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: #e06c75;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @urgent;
 }
 
 element selected.normal {
-    background-color: #282c37;
-    border-color: @accent;
-    text-color: #ffffff;
+    background-color: @selected-bg;
+    border-color: @accent-bright;
+    text-color: @selected-fg;
 }
 
 element selected.active {
-    background-color: #282c37;
-    border-color: @accent;
-    text-color: #ffffff;
+    background-color: @selected-bg;
+    border-color: @active;
+    text-color: @selected-fg;
 }
 
 element selected.urgent {
-    background-color: #282c37;
-    border-color: #e06c75;
-    text-color: #ffffff;
+    background-color: @urgent;
+    border-color: @urgent;
+    text-color: @fg;
 }
 
 element alternate.normal {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: #dcdfe6;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @fg;
 }
 
 element alternate.active {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: @accent;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @active;
 }
 
 element alternate.urgent {
-    background-color: #181a21;
-    border-color: #242733;
-    text-color: #e06c75;
+    background-color: @bg-alt;
+    border-color: transparent;
+    text-color: @urgent;
 }
 
 element-icon {
-    background-color: #0e0f13;
+    background-color: @bg;
     size: 110px;
     horizontal-align: 0.5;
     vertical-align: 0.5;
@@ -183,6 +157,6 @@ element-text {
 
 element selected element-text {
     background-color: transparent;
-    text-color: #ffffff;
+    text-color: @selected-fg;
     font: "0xProto Nerd Font Bold 9.5, Symbols Nerd Font 9.5";
 }

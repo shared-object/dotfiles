@@ -1,8 +1,46 @@
 * {
-    wallust-bg:     {{background}};
-    wallust-fg:     {{foreground}};
-    accent:         {{color4}};
-    accent-bright:  {{color12}};
-    active:         {{color2}};
-    urgent:         {{color1}};
+    bg:                          {{background}};
+    bg-alt:                      {{color0}};
+    bg-card:                     {{color0}};
+    bg-input:                    {{color0}};
+    fg:                          {{foreground}};
+    fg-alt:                      {{color7}};
+    fg-muted:                    {{color8}};
+    accent:                      {{color4}};
+    accent-bright:               {{color12}};
+    active:                      {{color2}};
+    urgent:                      {{color1}};
+    border-col:                  {{color4}};
+    selected-bg:                 {{color4}};
+    selected-fg:                 {{background}};
+
+    background:                  @bg;
+    background-color:            transparent;
+    foreground:                  @fg;
+    text-color:                  @fg;
+
+    normal-background:           @bg-alt;
+    normal-foreground:           @fg;
+    alternate-normal-background: @bg-alt;
+    alternate-normal-foreground: @fg;
+    selected-normal-background:  @selected-bg;
+    selected-normal-foreground:  @selected-fg;
+
+    active-background:           @bg-alt;
+    active-foreground:           @active;
+    alternate-active-background: @bg-alt;
+    alternate-active-foreground: @active;
+    selected-active-background:  @selected-bg;
+    selected-active-foreground:  @selected-fg;
+
+    urgent-background:           @bg-alt;
+    urgent-foreground:           @urgent;
+    alternate-urgent-background: @bg-alt;
+    alternate-urgent-foreground: @urgent;
+    selected-urgent-background:  @urgent;
+    selected-urgent-foreground:  @fg;
+
+    /* Legacy compatibility aliases */
+    wallust-bg:                  {{background}};
+    wallust-fg:                  {{foreground}};
 }
