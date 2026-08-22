@@ -1,39 +1,41 @@
 # 🌌 Niri Wayland Dotfiles
 
-Комплексная, производительная и эстетичная конфигурация рабочего окружения на базе тайлингового композитора **Niri (Wayland)** для **Void Linux**.
+[English](README.md) | [Русский](README.ru.md)
 
-Включает динамическую смену тем через **Wallust**, полупрозрачный Material Design стиль, интеграцию с PipeWire, два статус-бара на выбор (**Waybar** и **Yambar**), экранные подсказки клавиш (**wshowkeys**), быстрый лаунчер (**vicinae**) и терминал **foot** с оболочкой **fish**.
+A comprehensive, responsive, and aesthetic desktop environment configuration based on the **Niri (Wayland)** scrollable tiling compositor for **Void Linux**.
+
+Features dynamic wallpaper theming via **Wallust**, translucent Material Design glass styling, native PipeWire IPC audio integration, dual status bars (**Waybar** and **Yambar**), onscreen keypress overlays (**wshowkeys**), quick application launcher (**vicinae**), keyboard-driven browser (**luakit**), modern code editor (**Neovim**), and the **foot** terminal paired with **fish shell**.
 
 ---
 
-## 📸 Основные компоненты
+## 📸 Key Components
 
-| Компонент | Программа | Описание |
+| Component | Software | Description |
 |---|---|---|
-| **Compositor** | [Niri](https://github.com/YaLTeR/niri) | Скроллящийся тайлинговый Wayland-композитор |
-| **Status Bar #1** | [Waybar](https://github.com/Alexays/Waybar) | Вертикальный бар слева со слайдерами и drawer-модулями |
-| **Status Bar #2** | [Yambar](https://codeberg.org/dnkl/yambar) | Минималистичный плавающий бар сверху |
-| **Terminal** | [Foot](https://codeberg.org/dnkl/foot) | Быстрый, легковесный Wayland-терминал с поддержкой TrueColor |
-| **Shell** | [Fish](https://fishshell.com/) | Дружелюбная интерактивная командная оболочка |
-| **Notifications** | [Mako](https://github.com/emersion/mako) | Material Translucent уведомления и OSD-панели |
-| **Theming** | [Wallust](https://codeberg.org/explosion-mental/wallust) | Автоматическая генерация цветовых палитр из обоев |
-| **Wallpaper** | [awww](https://github.com/phisch/awww) | Анимированный Wayland wallpaper daemon |
-| **Launcher** | [Vicinae](https://github.com/vicinaehq/vicinae) | Современный Wayland Application Launcher (`MOD+D`) |
-| **Lock Screen** | [gtklock](https://github.com/jovanlanik/gtklock) | Экран блокировки с поддержкой модулей и стилей |
-| **Keypress OSD** | [wshowkeys](https://github.com/ammgws/wshowkeys) | Экранное отображение нажатых клавиш (`MOD+SHIFT+V`) |
-| **Browser** | [Luakit](https://luakit.github.io/) | Клавиатурный WebKit-браузер |
-| **Editor** | [Neovim](https://neovim.io/) | Конфигурация [kickstart.nvim](https://github.com/shared-object/kickstart.nvim) (Git Submodule) |
-| **Audio / Video** | [PipeWire](https://pipewire.org/) + WirePlumber | Современный звуковой сервер с прямым IPC в статус-бары |
+| **Compositor** | [Niri](https://github.com/YaLTeR/niri) | Modern scrollable-tiling Wayland compositor |
+| **Status Bar #1** | [Waybar](https://github.com/Alexays/Waybar) | Vertical left bar with drawer sliders & C IPC daemon |
+| **Status Bar #2** | [Yambar](https://codeberg.org/dnkl/yambar) | Minimalist floating top bar powered by C PipeWire/Niri daemons |
+| **Terminal** | [Foot](https://codeberg.org/dnkl/foot) | Fast, lightweight Wayland terminal with TrueColor support |
+| **Shell** | [Fish](https://fishshell.com/) | User-friendly interactive command-line shell |
+| **Notifications** | [Mako](https://github.com/emersion/mako) | Material Translucent notifications & OSD panels |
+| **Theming** | [Wallust](https://codeberg.org/explosion-mental/wallust) | Automatic palette generation from wallpaper images |
+| **Wallpaper** | [awww](https://github.com/phisch/awww) | Animated Wayland wallpaper daemon |
+| **Launcher** | [Vicinae](https://github.com/vicinaehq/vicinae) | Fast Wayland application launcher (`MOD+D`) |
+| **Lock Screen** | [gtklock](https://github.com/jovanlanik/gtklock) | Lockscreen with dynamic background & Wallust styling (`MOD+SHIFT+Q`) |
+| **Keypress OSD** | [wshowkeys](https://github.com/ammgws/wshowkeys) | Onscreen keypress visualizer (`MOD+SHIFT+V`) |
+| **Browser** | [Luakit](https://luakit.github.io/) | Keyboard-driven WebKit browser with Wallust theme & `Ctrl+C` copy |
+| **Editor** | [Neovim](https://neovim.io/) | Configured via [kickstart.nvim](https://github.com/shared-object/kickstart.nvim) (Git Submodule) |
+| **Audio / Video** | [PipeWire](https://pipewire.org/) + WirePlumber | Low-latency audio server with direct IPC to status bars |
 
 ---
 
-## 📦 Установка зависимостей
+## 📦 Dependency Installation
 
-### 1. Системные пакеты (Void Linux XBPS)
+### 1. System Packages (Void Linux XBPS)
 
-Полный список пакетов находится в файлах [`pkglist.txt`](pkglist.txt) (с версиями) и [`xbps-packages.txt`](xbps-packages.txt).
+The full list of installed packages is provided in [`pkglist.txt`](pkglist.txt) (with versions) and [`xbps-packages.txt`](xbps-packages.txt).
 
-Установка всех необходимых пакетов одной командой:
+Install all necessary packages with a single command:
 
 ```bash
 sudo xbps-install -Sy \
@@ -45,16 +47,15 @@ sudo xbps-install -Sy \
     papirus-icon-theme breeze-icons arc-theme nerd-fonts-symbols-ttf
 ```
 
-### 2. Внешние утилиты (сборка / установка)
+### 2. External Tools & Utilities
 
-1. **Wallust** (генератор цветовых схем):
+1. **Wallust** (Color palette generator):
    ```bash
    cargo install --locked wallust
    ```
 
-2. **wshowkeys** (экранное отображение клавиш для биндинга `MOD+SHIFT+V`):
+2. **wshowkeys** (Keypress OSD for `MOD+SHIFT+V`):
    ```bash
-   # Сборка из исходников
    git clone https://github.com/ammgws/wshowkeys.git
    cd wshowkeys
    meson setup build --buildtype=release
@@ -62,14 +63,11 @@ sudo xbps-install -Sy \
    sudo ninja -C build install
    ```
 
-3. **Vicinae** (лаунчер приложений):
-   ```bash
-   # Доступен в виде бинарника / сборки
-   # Подробнее: https://github.com/vicinaehq/vicinae
-   ```
+3. **Vicinae** (Application launcher):
+   Prebuilt binary or source build available at [Vicinae GitHub](https://github.com/vicinaehq/vicinae).
 
-4. **Шрифт 0xProto Nerd Font**:
-   Скачайте и распакуйте в `~/.local/share/fonts/`:
+4. **0xProto Nerd Font**:
+   Download and unpack into `~/.local/share/fonts/`:
    ```bash
    mkdir -p ~/.local/share/fonts
    curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/0xProto.tar.xz
@@ -79,74 +77,83 @@ sudo xbps-install -Sy \
 
 ---
 
-## 🚀 Установка дотфайлов
+## 🚀 Dotfiles Installation
 
-### Автоматическая установка
+### Automated Installation
 
-Склонируйте репозиторий и запустите скрипт `install.sh`:
+Clone the repository with submodules and execute `install.sh`:
 
 ```bash
-git clone --recurse-submodules <URL_РЕПОЗИТОРИЯ> ~/dotfiles
+git clone --recurse-submodules <REPO_URL> ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
 
-Скрипт автоматически:
-1. Инициализирует сабмодули (`git submodule update --init --recursive`)
-2. Создаст директории в `~/.config/`
-3. Скопирует конфигурационные файлы
-4. Создаст симлинк на обои `~/Pictures/Wallpapers`
-5. Выдаст права на исполнение всем вспомогательным скриптам
-6. Скомпилирует все вспомогательные C-бинарники для статус-баров (`layout`, `layout_waybar`, `volume`, `mic`)
+The script will automatically:
+1. Initialize and fetch git submodules (`git submodule update --init --recursive`)
+2. Create directories in `~/.config/`
+3. Copy all configuration files
+4. Create the wallpaper symlink (`~/Pictures/Wallpapers -> ~/.config/wallpapers`)
+5. Grant executable permissions to all helper scripts
+6. Compile all custom C daemons for status bars (`layout`, `layout_waybar`, `volume`, `mic`)
 
-### Ручная сборка C-скриптов
+### Manual Compilation of C Daemons
 
-В корне репозитория есть удобный `Makefile`:
+A top-level `Makefile` is included for convenience:
 
 ```bash
-make          # Собрать скрипты для Waybar и Yambar
-make clean    # Очистить скомпилированные бинарники
+make          # Build all status bar helper daemons
+make clean    # Remove compiled binaries
 ```
 
 ---
 
-## 📊 Статус-бары: Waybar и Yambar
+## 📊 Status Bars: Waybar & Yambar
 
-В конфигурации подготовлена поддержка двух статус-баров со специально написанными легковесными C-демонами:
+This configuration includes support for two distinct status bars powered by custom lightweight C daemons:
 
-### 1. Waybar (по умолчанию)
-* Расположен **слева (вертикально)**.
-* Содержит Drawer-слайдеры громкости (`group/audio`) и яркости (`group/brightness`).
-* Использует C-демон `layout_waybar` (`~/.config/waybar/scripts/layout_waybar`), который подключается к IPC-сокету Niri, выводит язык в JSON и мгновенно обновляется без polling-задержек.
+### 1. Waybar (Default)
+* Located on the **left (vertical)**.
+* Features drawer sliders for volume (`group/audio`) and brightness (`group/brightness`).
+* Utilizes `layout_waybar` (`~/.config/waybar/scripts/layout_waybar`), a C daemon connecting directly to Niri's IPC socket to emit JSON updates with zero polling latency.
 
 ### 2. Yambar
-* Расположен **сверху (горизонтально, плавающий полупрозрачный бар)**.
-* Использует набор C-демонов в `~/.config/yambar/scripts/`:
-  * `layout` — индикатор раскладки клавиатуры Niri.
-  * `volume` — прямой мониторинг громкости через PipeWire IPC API.
-  * `mic` — прямой мониторинг состояния микрофона через PipeWire IPC API.
+* Located at the **top (horizontal, floating translucent bar)**.
+* Uses modular C daemons in `~/.config/yambar/scripts/`:
+  * `layout` — Niri keyboard layout monitor.
+  * `volume` — Direct PipeWire IPC volume and mute monitor.
+  * `mic` — Direct PipeWire IPC microphone status monitor.
 
-### 🔄 Как переключаться между барами:
-В файле `~/.config/niri/config.kdl` в блоке `Startup Applications`:
+### 🔄 Switching Between Bars
+In `~/.config/niri/config.kdl` under the `Startup Applications` section:
 ```kdl
-// Для Waybar:
+// For Waybar:
 spawn-at-startup "waybar"
 
-// Или для Yambar (закомментируйте waybar и раскомментируйте yambar):
+// Or for Yambar (comment waybar and uncomment yambar):
 // spawn-at-startup "yambar"
 ```
 
 ---
 
-## 🎨 Динамическая смена тем и обои
+## 🌐 Luakit Web Browser
 
-При смене обоев запускается скрипт `theme-sync.sh`, который:
-1. Анализирует изображение обоев.
-2. Генерирует с помощью `wallust` цветовые схемы для **Foot, Mako, Waybar, Yambar, Luakit, Vicinae, GTK, GTKLock и Zathura**.
-3. Автоматически перезагружает демоны (`makoctl reload`, `pkill -SIGUSR2 waybar`, GTK theme changes).
+[Luakit](https://luakit.github.io/) is optimized for keyboard-centric web browsing:
+* **Wallust Theming**: Color palettes for tabs, status bar, completion menu, and link hints are automatically synchronized with the active wallpaper through `colors.lua` and `theme.lua`.
+* **Selection Copying**: Pressing `Ctrl + C` in normal mode copies the highlighted text directly to the system clipboard (`luakit.selection.clipboard`).
+* **Performance**: Hardware-accelerated 2D canvas, WebGL, and smooth scrolling are enabled out of the box.
 
-* **Сменить обои интерактивно**: нажмите `MOD+W` (запустится `bgselector.sh` с превью).
-* **Сменить обои вручную**:
+---
+
+## 🎨 Dynamic Theming & Wallpapers
+
+When a wallpaper changes, the `theme-sync.sh` script:
+1. Analyzes the image color distribution.
+2. Uses `wallust` to generate coordinated color schemes for **Foot, Mako, Waybar, Yambar, Luakit, Vicinae, GTK, GTKLock, and Zathura**.
+3. Reloads running daemons on the fly (`makoctl reload`, `pkill -SIGUSR2 waybar`, GTK CSS reload).
+
+* **Interactive wallpaper switcher**: Press `MOD+W` (launches `bgselector.sh` with live thumbnail grid).
+* **Manual wallpaper switch**:
   ```bash
   awww img ~/Pictures/Wallpapers/Gruvbox/Dark/rockman.png
   ~/.config/scripts/theme-sync.sh
@@ -154,70 +161,71 @@ spawn-at-startup "waybar"
 
 ---
 
-## ⌨️ Основные горячие клавиши (Niri)
+## ⌨️ Default Keybindings (Niri)
 
-Модификатор по умолчанию (`MOD`) — `Super` (Windows key).
+Default modifier (`MOD`): `Super` (Windows key).
 
-### 🚀 Запуск приложений
-| Комбинация | Действие |
+### 🚀 Application Shortcuts
+| Keybinding | Action |
 |---|---|
-| `MOD + Enter` | Открыть терминал (`foot`) |
-| `MOD + D` | Лаунчер приложений (`vicinae toggle`) |
-| `MOD + B` | Открыть браузер (`luakit`) |
-| `MOD + Alt + E` | Файловый менеджер (`thunar`) |
-| `MOD + W` | Выбор обоев (`bgselector.sh`) |
-| `MOD + Shift + V` | Вкл/выкл показ клавиш на экране (`wshowkeys`) |
-| `MOD + Shift + Q` | Заблокировать экран (`gtklock`) |
-| `MOD + Shift + Esc` | Шпаргалка горячих клавиш Niri (Overlay) |
+| `MOD + Enter` | Open terminal (`foot`) |
+| `MOD + D` | Application launcher (`vicinae toggle`) |
+| `MOD + B` | Open web browser (`luakit`) |
+| `MOD + Alt + E` | File manager (`thunar`) |
+| `MOD + W` | Wallpaper selector (`bgselector.sh`) |
+| `MOD + Shift + V` | Toggle onscreen keypresses (`wshowkeys`) |
+| `MOD + Shift + Q` | Lock screen (`gtklock`) |
+| `MOD + Shift + Esc` | Niri keybindings overlay cheatsheet |
 
-### 🪟 Управление окнами
-| Комбинация | Действие |
+### 🪟 Window Management
+| Keybinding | Action |
 |---|---|
-| `MOD + Q` | Закрыть активное окно |
-| `MOD + H` / `MOD + Left` | Фокус на колонку влево |
-| `MOD + L` / `MOD + Right` | Фокус на колонку вправо |
-| `MOD + J` / `MOD + K` | Переключение рабочих столов (вниз / вверх) |
-| `MOD + Space` | Переключение раскладки клавиатуры (`us, ru, ua`) |
+| `MOD + Q` | Close active window |
+| `MOD + H` / `MOD + Left` | Focus column to the left |
+| `MOD + L` / `MOD + Right` | Focus column to the right |
+| `MOD + J` / `MOD + K` | Switch workspaces (down / up) |
+| `MOD + Space` | Switch keyboard layout (`us, ru, ua`) |
 
-### 🔊 Мультимедиа
-| Клавиша | Действие |
+### 🔊 Media & Audio Controls
+| Key | Action |
 |---|---|
-| `XF86AudioRaiseVolume` | Увеличить громкость (`wpctl`) |
-| `XF86AudioLowerVolume` | Уменьшить громкость (`wpctl`) |
-| `XF86AudioMute` | Заглушить звук (Mute toggle) |
-| `XF86AudioMicMute` | Заглушить микрофон |
-| `XF86AudioPlay` / `Next` / `Prev` | Управление медиаплеером (`playerctl`) |
-| `XF86MonBrightnessUp` / `Down` | Регулировка яркости экрана (`brightnessctl`) |
+| `XF86AudioRaiseVolume` | Increase volume (`wpctl`) |
+| `XF86AudioLowerVolume` | Decrease volume (`wpctl`) |
+| `XF86AudioMute` | Toggle audio mute |
+| `XF86AudioMicMute` | Toggle microphone mute |
+| `XF86AudioPlay` / `Next` / `Prev` | Media playback control (`playerctl`) |
+| `XF86MonBrightnessUp` / `Down` | Adjust display brightness (`brightnessctl`) |
 
 ---
 
-## 📁 Структура репозитория
+## 📁 Repository Structure
 
 ```
 dotfiles/
 ├── .config/
-│   ├── fastfetch/         # Конфигурация fastfetch
-│   ├── fish/              # Оболочка fish
-│   ├── foot/              # Терминал foot
-│   ├── gtk-3.0/ & 4.0/    # Настройки тем GTK
-│   ├── gtklock/           # Экран блокировки
-│   ├── luakit/            # Браузер luakit
-│   ├── mako/              # Демон уведомлений (Material Translucent)
-│   ├── niri/              # Конфиг Niri и скрипты (включая toggle-showkeys)
-│   ├── nvim/              # Конфигурация Neovim (git submodule kickstart.nvim)
-│   ├── nwg-look/          # Настройки внешнего вида
-│   ├── scripts/           # Скрипты синхронизации темы, обоев и управления
-│   ├── vicinae/           # Настройки лаунчера
-│   ├── wallpapers/        # Коллекция обоев
-│   ├── wallust/           # Шаблоны и конфиг Wallust
-│   ├── waybar/            # Конфиг, стили и C-скрипт раскладки для Waybar
-│   ├── xsettingsd/        # Настройки xsettingsd
-│   ├── yambar/            # Конфиг и C-скрипты PipeWire/Niri для Yambar
-│   └── zathura/           # Конфигурация PDF-ридера
-├── .gitmodules            # Конфигурация Git сабмодулей
-├── Makefile               # Сборка всех вспомогательных C-бинарников
-├── install.sh             # Скрипт быстрой установки
-├── xbps-packages.txt      # Чистый список пакетов для Void Linux
-├── pkglist.txt            # Исходный вывод xbps-query -m с версиями
-└── README.md              # Документация и руководство
+│   ├── fastfetch/         # Fastfetch system info configuration
+│   ├── fish/              # Fish shell configuration & functions
+│   ├── foot/              # Foot terminal emulator config
+│   ├── gtk-3.0/ & 4.0/    # GTK styling & themes
+│   ├── gtklock/           # Lockscreen config & styles
+│   ├── luakit/            # Luakit browser config (Wallust theme + userconf.lua)
+│   ├── mako/              # Mako notification daemon (Material Translucent)
+│   ├── niri/              # Niri compositor config & scripts
+│   ├── nvim/              # Neovim configuration (git submodule kickstart.nvim)
+│   ├── nwg-look/          # GTK appearance settings
+│   ├── scripts/           # Wallpaper selector, theme-sync, and media scripts
+│   ├── vicinae/           # Vicinae launcher configuration & themes
+│   ├── wallpapers/        # Curated wallpaper collections
+│   ├── wallust/           # Wallust color templates & configuration
+│   ├── waybar/            # Waybar styles, modules, and C layout daemon
+│   ├── xsettingsd/        # XSettings daemon config
+│   ├── yambar/            # Yambar config & C PipeWire/Niri daemons
+│   └── zathura/           # Zathura PDF reader config
+├── .gitmodules            # Git submodule definitions
+├── Makefile               # Top-level build script for all C daemons
+├── install.sh             # One-click installation & deployment script
+├── xbps-packages.txt      # Clean Void Linux package list
+├── pkglist.txt            # Raw package list with versions (xbps-query -m)
+├── README.md              # Documentation (English)
+└── README.ru.md           # Documentation (Русский)
 ```
