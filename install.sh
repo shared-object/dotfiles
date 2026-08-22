@@ -18,6 +18,13 @@ for item in "$DOTFILES_DIR/.config"/*; do
     cp -rf "$item" "$CONFIG_DIR/"
 done
 
+# Create wallpapers symlink to ~/Pictures/Wallpapers if needed
+mkdir -p "$HOME/Pictures"
+if [ ! -e "$HOME/Pictures/Wallpapers" ]; then
+    echo "  -> Linking $CONFIG_DIR/wallpapers to $HOME/Pictures/Wallpapers"
+    ln -sf "$CONFIG_DIR/wallpapers" "$HOME/Pictures/Wallpapers"
+fi
+
 echo "[3/4] Setting execute permissions on scripts..."
 chmod +x "$CONFIG_DIR/scripts"/*.sh 2>/dev/null || true
 chmod +x "$CONFIG_DIR/niri/scripts"/* 2>/dev/null || true
