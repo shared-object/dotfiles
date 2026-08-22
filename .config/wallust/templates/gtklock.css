@@ -72,6 +72,65 @@ window.focused:not(.hidden) #date-label {
     box-shadow: 0 0 12px alpha({{color4}}, 0.6);
 }
 
+#input-field image {
+    color: alpha({{foreground}}, 0.75);
+    padding: 0 4px;
+}
+
+#input-field image:hover {
+    color: {{foreground}};
+}
+
+/* Styled Unlock Button & Suggested Action */
+button,
+#unlock-button,
+button.suggested-action,
+#unlock-button.suggested-action {
+    font-family: "0xProto Nerd Font", "JetBrainsMono Nerd Font", monospace;
+    font-size: 12pt;
+    font-weight: bold;
+    background-image: none;
+    background-color: alpha({{color4}}, 0.85);
+    color: {{background}};
+    border: 1px solid alpha({{color4}}, 0.95);
+    border-radius: 12px;
+    padding: 8px 24px;
+    margin-top: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: all 200ms ease;
+}
+
+button:hover,
+#unlock-button:hover,
+button.suggested-action:hover,
+#unlock-button.suggested-action:hover {
+    background-image: none;
+    background-color: {{color4}};
+    color: {{background}};
+    border-color: {{color6}};
+    box-shadow: 0 0 16px alpha({{color4}}, 0.65), 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+button:active,
+#unlock-button:active,
+button.suggested-action:active,
+#unlock-button.suggested-action:active {
+    background-image: none;
+    background-color: alpha({{color5}}, 0.9);
+    color: {{foreground}};
+    border-color: {{color5}};
+    box-shadow: 0 0 8px alpha({{color5}}, 0.5);
+}
+
+button:focus,
+#unlock-button:focus,
+button.suggested-action:focus,
+#unlock-button.suggested-action:focus {
+    outline: none;
+    border-color: {{color6}};
+    box-shadow: 0 0 12px alpha({{color4}}, 0.8);
+}
+
 #error-label {
     font-family: "0xProto Nerd Font", monospace;
     font-size: 11pt;
@@ -87,4 +146,10 @@ window.focused:not(.hidden) #date-label {
     color: {{color3}};
     margin-top: 10px;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+#message-box {
+    color: {{foreground}};
+    font-family: "0xProto Nerd Font", monospace;
+    font-size: 11pt;
 }

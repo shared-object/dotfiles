@@ -72,6 +72,65 @@ window.focused:not(.hidden) #date-label {
     box-shadow: 0 0 12px alpha(#645E57, 0.6);
 }
 
+#input-field image {
+    color: alpha(#CBC3B9, 0.75);
+    padding: 0 4px;
+}
+
+#input-field image:hover {
+    color: #CBC3B9;
+}
+
+/* Styled Unlock Button & Suggested Action */
+button,
+#unlock-button,
+button.suggested-action,
+#unlock-button.suggested-action {
+    font-family: "0xProto Nerd Font", "JetBrainsMono Nerd Font", monospace;
+    font-size: 12pt;
+    font-weight: bold;
+    background-image: none;
+    background-color: alpha(#645E57, 0.85);
+    color: #030202;
+    border: 1px solid alpha(#645E57, 0.95);
+    border-radius: 12px;
+    padding: 8px 24px;
+    margin-top: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: all 200ms ease;
+}
+
+button:hover,
+#unlock-button:hover,
+button.suggested-action:hover,
+#unlock-button.suggested-action:hover {
+    background-image: none;
+    background-color: #645E57;
+    color: #030202;
+    border-color: #847D74;
+    box-shadow: 0 0 16px alpha(#645E57, 0.65), 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+button:active,
+#unlock-button:active,
+button.suggested-action:active,
+#unlock-button.suggested-action:active {
+    background-image: none;
+    background-color: alpha(#7C6643, 0.9);
+    color: #CBC3B9;
+    border-color: #7C6643;
+    box-shadow: 0 0 8px alpha(#7C6643, 0.5);
+}
+
+button:focus,
+#unlock-button:focus,
+button.suggested-action:focus,
+#unlock-button.suggested-action:focus {
+    outline: none;
+    border-color: #847D74;
+    box-shadow: 0 0 12px alpha(#645E57, 0.8);
+}
+
 #error-label {
     font-family: "0xProto Nerd Font", monospace;
     font-size: 11pt;
@@ -87,4 +146,10 @@ window.focused:not(.hidden) #date-label {
     color: #5E4A34;
     margin-top: 10px;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+#message-box {
+    color: #CBC3B9;
+    font-family: "0xProto Nerd Font", monospace;
+    font-size: 11pt;
 }
