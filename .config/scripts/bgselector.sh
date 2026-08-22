@@ -2,6 +2,8 @@
 
 set -uo pipefail
 
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
 WALL_DIR="$HOME/Pictures/Wallpapers"
 CACHE_DIR="$HOME/.cache/thumbnails/bgselector"
 CACHE_INDEX="$CACHE_DIR/.index"
@@ -113,7 +115,6 @@ if [ -n "$selected" ]; then
         awww img "$selected_path" -t fade --transition-duration 2 --transition-fps 30 &
         
         # 2. Run theme-sync with explicit wallpaper path
-        "$HOME/.config/scripts/theme-sync.sh" "$selected_path" &
-        wait
+        "$HOME/.config/scripts/theme-sync.sh" "$selected_path"
     fi
 fi

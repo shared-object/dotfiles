@@ -2,7 +2,11 @@
 
 set -uo pipefail
 
-sleep 0.8 # let awww set the wallpaper
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
+if [[ -z "${1:-}" ]]; then
+  sleep 0.8 # let awww set the wallpaper if querying dynamically
+fi
 
 # Source common utilities if available
 if [[ -f "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh" ]]; then
@@ -707,9 +711,9 @@ main() {
 
   log_info "Detected theme: $detected_theme, variation: $wallpaper_variation"
 
-  # Check if theme/variation/wallpaper changed
+  # Check if theme/variation/wallpaper changed (always sync if explicit wallpaper argument is given)
   local theme_changed=0
-  if check_theme_changed "$detected_theme" "$wallpaper_variation" "$wallpaper_path"; then
+  if [[ -n "${1:-}" ]] || check_theme_changed "$detected_theme" "$wallpaper_variation" "$wallpaper_path"; then
     theme_changed=1
   fi
 
