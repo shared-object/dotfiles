@@ -1,0 +1,100 @@
+@import "../colors.rasi"
+
+configuration {
+    show-icons: true;
+    dmenu {
+        display-name: "🌌 Wallpaper";
+    }
+}
+
+* {
+    font: "0xProto Nerd Font 10";
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+window {
+    transparency: "real";
+    background-color: @background;
+    text-color: @foreground;
+    border: 2px;
+    border-color: @border;
+    border-radius: 16px;
+    width: 960px;
+    height: 650px;
+    location: center;
+    anchor: center;
+    padding: 20px;
+}
+
+mainbox {
+    spacing: 16px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    spacing: 10px;
+    padding: 12px 16px;
+    background-color: @background-alt;
+    border-radius: 10px;
+    border: 1px;
+    border-color: @border;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @selected;
+    font: "0xProto Nerd Font Bold 11";
+}
+
+entry {
+    placeholder: "Type to filter wallpapers (Gruvbox, Catppuccin, Nord, Material...)...";
+    placeholder-color: rgba(180, 180, 180, 0.45);
+    text-color: @foreground;
+}
+
+listview {
+    flow: horizontal;
+    fixed-columns: true;
+    columns: 4;
+    lines: 3;
+    spacing: 14px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: @background-alt;
+    border: 2px;
+    border-color: transparent;
+    spacing: 8px;
+    children: [ element-icon, element-text ];
+}
+
+element selected {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: @selected;
+}
+
+element-icon {
+    size: 110px;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    border-radius: 8px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: @foreground;
+    font: "0xProto Nerd Font 9";
+}
+
+element selected element-text {
+    text-color: @selected;
+    font: "0xProto Nerd Font Bold 9";
+}

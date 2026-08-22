@@ -56,6 +56,6 @@ vicinae = { src = "vicinae", dst = "~/.local/share/vicinae/themes/wallust.toml" 
 luakit = { src = "luakit-theme.lua", dst = "~/.config/luakit/colors.lua" }
 yambar = { template = 'yambar.yml', target = '~/.config/yambar/config.yml' }
 gtklock = { src = "gtklock.css", dst = "~/.config/gtklock/style.css" }
+rofi = { src = "rofi.rasi", dst = "~/.config/rofi/colors.rasi" }
+
 [hooks]
-# Run commands when wallust is invoked. Useful to avoid scripting.
-#wallpaper = """swww img "$(find ~/Media/Pictures/Wallpapers -iregex '.*.\\(jpg\\|jpeg\\|png\\|gif\\)' -type f | shuf -n 1)" """

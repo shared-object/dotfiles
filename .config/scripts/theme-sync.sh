@@ -295,8 +295,10 @@ map_to_wallust_theme() {
 detect_theme_from_wallpaper() {
   log_info "Detecting theme from current wallpaper directory"
 
-  local wallpaper_path
-  wallpaper_path=$(awww query 2> /dev/null | grep -oP '(?<=image: ).*' | head -n1 | tr -d '\n\r')
+  local wallpaper_path="${1:-}"
+  if [[ -z "$wallpaper_path" ]]; then
+    wallpaper_path=$(awww query 2> /dev/null | grep -oP '(?<=image: ).*' | head -n1 | tr -d '\n\r')
+  fi
 
   if [[ -z "$wallpaper_path" ]]; then
     die "No wallpaper detected from awww query"
@@ -335,6 +337,7 @@ detect_theme_from_wallpaper() {
 check_theme_changed() {
   local -r current_theme="$1"
   local -r current_variation="$2"
+  local -r current_wallpaper="${3:-}"
 
   # Create cache directory if it doesn't exist
   mkdir -p "$(dirname "$THEME_STATE_FILE")"
@@ -344,14 +347,14 @@ check_theme_changed() {
     return 0 # Theme changed (first run)
   fi
 
-  local previous_theme previous_variation
-  read -r previous_theme previous_variation < "$THEME_STATE_FILE"
+  local previous_theme previous_variation previous_wallpaper
+  read -r previous_theme previous_variation previous_wallpaper < "$THEME_STATE_FILE"
 
-  if [[ "$current_theme" == "$previous_theme" && "$current_variation" == "$previous_variation" ]]; then
-    log_info "Theme unchanged: $current_theme ($current_variation)"
+  if [[ "$current_theme" == "$previous_theme" && "$current_variation" == "$previous_variation" && "$current_wallpaper" == "$previous_wallpaper" ]]; then
+    log_info "Theme and wallpaper unchanged: $current_theme ($current_variation)"
     return 1 # Theme did not change
   else
-    log_info "Theme changed: $previous_theme ($previous_variation) → $current_theme ($current_variation)"
+    log_info "Theme/wallpaper changed: $previous_theme ($previous_variation) → $current_theme ($current_variation)"
     return 0 # Theme changed
   fi
 }
@@ -359,10 +362,11 @@ check_theme_changed() {
 save_theme_state() {
   local -r theme="$1"
   local -r variation="$2"
+  local -r wallpaper="${3:-}"
 
   mkdir -p "$(dirname "$THEME_STATE_FILE")"
-  echo "$theme $variation" > "$THEME_STATE_FILE"
-  log_info "Saved theme state: $theme ($variation)"
+  echo "$theme $variation $wallpaper" > "$THEME_STATE_FILE"
+  log_info "Saved theme state: $theme ($variation) [$wallpaper]"
 }
 
 # Function to set values in INI files
@@ -661,8 +665,8 @@ main() {
   # Validate dependencies
   validate_dependencies "awww" "wallust" "jq" "sed" "grep" "head" "tr"
 
-  # Detect theme from current wallpaper
-  detect_theme_from_wallpaper
+  # Detect theme from current wallpaper (or parameter)
+  detect_theme_from_wallpaper "${1:-}"
 
   local detected_theme="${DETECTED_THEME:-}"
   local wallpaper_path="${WALLPAPER_PATH:-}"
@@ -682,9 +686,9 @@ main() {
 
   log_info "Detected theme: $detected_theme, variation: $wallpaper_variation"
 
-  # Check if theme/variation changed
+  # Check if theme/variation/wallpaper changed
   local theme_changed=0
-  if check_theme_changed "$detected_theme" "$wallpaper_variation"; then
+  if check_theme_changed "$detected_theme" "$wallpaper_variation" "$wallpaper_path"; then
     theme_changed=1
   fi
 
@@ -718,7 +722,7 @@ main() {
       log_warn "makoctl not available, skipping notification daemon reload"
     fi
 
-    save_theme_state "$detected_theme" "$wallpaper_variation"
+    save_theme_state "$detected_theme" "$wallpaper_variation" "$wallpaper_path"
 
     log_success "Dynamic theme synchronization completed successfully"
     send_notification "Theme Manager" "Theme Synchronization Complete" "" "normal" "preferences-desktop-theme"
