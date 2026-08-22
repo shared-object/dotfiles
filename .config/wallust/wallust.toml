@@ -57,5 +57,6 @@ luakit = { src = "luakit-theme.lua", dst = "~/.config/luakit/colors.lua" }
 yambar = { template = 'yambar.yml', target = '~/.config/yambar/config.yml' }
 gtklock = { src = "gtklock.css", dst = "~/.config/gtklock/style.css" }
 rofi = { src = "rofi.rasi", dst = "~/.config/rofi/colors.rasi" }
+fish = { src = "colors.fish", dst = "~/.config/fish/colors.fish" }
 
 [hooks]
