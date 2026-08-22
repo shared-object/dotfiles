@@ -87,9 +87,9 @@ settings.webview.enable_accelerated_2d_canvas = true
 settings.webview.zoom_level = 100
 settings.window.home_page = "about:blank"
 settings.window.search_engines = {
-    duckduckgo = "https://duckduckgo.com/?q=%s",
     google     = "https://www.google.com/search?q=%s",
+    duckduckgo = "https://duckduckgo.com/?q=%s",
     github     = "https://github.com/search?q=%s",
     void       = "https://voidlinux.org/packages/?q=%s",
-    default    = "https://duckduckgo.com/?q=%s",
+    default    = "https://www.google.com/search?q=%s",
 }
