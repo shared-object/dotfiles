@@ -1,8 +1,6 @@
 * {
-    bg:             {{background}};
-    bg-alt:         {{color0}};
-    fg:             {{foreground}};
-    fg-muted:       {{color8}};
+    wallust-bg:     {{background}};
+    wallust-fg:     {{foreground}};
     accent:         {{color4}};
     accent-bright:  {{color12}};
     active:         {{color2}};

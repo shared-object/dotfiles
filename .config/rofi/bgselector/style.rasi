@@ -9,60 +9,62 @@ configuration {
 
 * {
     font: "0xProto Nerd Font 10";
-    background-color: transparent;
-    text-color: @fg;
     margin: 0;
     padding: 0;
 }
 
 window {
-    transparency: "real";
-    background-color: rgba(15, 17, 23, 0.94);
+    background-color: #121318;
+    text-color: #dcdfe6;
     border: 2px;
     border-color: @accent;
-    border-radius: 18px;
-    width: 980px;
-    height: 660px;
+    border-radius: 16px;
+    width: 960px;
+    height: 650px;
     location: center;
     anchor: center;
-    padding: 24px;
+    padding: 20px;
 }
 
 mainbox {
-    spacing: 18px;
+    background-color: transparent;
+    spacing: 16px;
     children: [ inputbar, listview ];
 }
 
 inputbar {
-    spacing: 12px;
-    padding: 12px 18px;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: #1b1d24;
     border: 1.5px;
-    border-color: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
+    border-color: #2c2f3b;
+    border-radius: 10px;
+    padding: 12px 16px;
+    spacing: 10px;
     children: [ prompt, entry ];
 }
 
 prompt {
+    background-color: transparent;
     text-color: @accent-bright;
     font: "0xProto Nerd Font Bold 11";
     vertical-align: 0.5;
 }
 
 entry {
-    text-color: @fg;
-    placeholder: "Search wallpaper by name or category (Gruvbox, Nord, Catppuccin, Dark, Light...)...";
-    placeholder-color: rgba(220, 220, 220, 0.45);
+    background-color: transparent;
+    text-color: #ffffff;
+    placeholder: "Search wallpapers (Gruvbox, Nord, Catppuccin, Dark...)...";
+    placeholder-color: #6b7280;
     font: "0xProto Nerd Font 10.5";
     vertical-align: 0.5;
 }
 
 listview {
+    background-color: transparent;
     flow: horizontal;
     fixed-columns: true;
     columns: 4;
     lines: 3;
-    spacing: 16px;
+    spacing: 14px;
     cycle: true;
     dynamic: true;
     layout: vertical;
@@ -70,38 +72,40 @@ listview {
 }
 
 element {
+    background-color: #181a21;
+    border: 2px;
+    border-color: #242733;
+    border-radius: 12px;
     orientation: vertical;
     padding: 10px;
-    border-radius: 14px;
-    background-color: rgba(0, 0, 0, 0.40);
-    border: 2px;
-    border-color: rgba(255, 255, 255, 0.08);
     spacing: 8px;
     children: [ element-icon, element-text ];
 }
 
 element selected {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: #252836;
     border-color: @accent;
 }
 
 element-icon {
-    size: 115px;
+    background-color: #0e0f13;
+    size: 110px;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
 }
 
 element-text {
+    background-color: transparent;
+    text-color: #dcdfe6;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    text-color: @fg;
     font: "0xProto Nerd Font 9.5";
-    padding: 4px 6px;
+    padding: 4px 0px;
 }
 
 element selected element-text {
-    text-color: @accent-bright;
+    background-color: transparent;
+    text-color: #ffffff;
     font: "0xProto Nerd Font Bold 9.5";
 }
