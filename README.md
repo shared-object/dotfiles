@@ -40,7 +40,7 @@ Install all necessary packages with a single command:
 ```bash
 sudo xbps-install -Sy \
     niri xwayland-satellite Waybar yambar mako foot fish-shell \
-    awww gtklock luakit Thunar pavucontrol playerctl brightnessctl \
+    awww gtklock luakit rofi ImageMagick Thunar pavucontrol playerctl brightnessctl \
     pipewire pipewire-devel wireplumber libpipewire-0.3 \
     base-devel cmake cargo pkg-config gcc jq wl-clipboard \
     hyprpicker fastfetch htop zoxide wmenu \

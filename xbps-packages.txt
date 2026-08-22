@@ -1,4 +1,5 @@
 AlsaMixer.app
+ImageMagick
 NetworkManager
 Thunar
 Waybar
@@ -46,6 +47,7 @@ pipewire
 pipewire-devel
 playerctl
 qt6-base
+rofi
 sddm
 seatd
 sway

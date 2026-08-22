@@ -2,13 +2,14 @@
 
 configuration {
     show-icons: true;
+    font: "0xProto Nerd Font 10.5, Symbols Nerd Font 10.5";
     dmenu {
-        display-name: " 🌌 Wallpaper ";
+        display-name: " 󰸉 Wallpapers ";
     }
 }
 
 * {
-    font: "0xProto Nerd Font 10";
+    font: "0xProto Nerd Font 10.5, Symbols Nerd Font 10.5";
     margin: 0;
     padding: 0;
 
@@ -71,7 +72,7 @@ inputbar {
 prompt {
     background-color: transparent;
     text-color: @accent-bright;
-    font: "0xProto Nerd Font Bold 11";
+    font: "0xProto Nerd Font Bold 11.5, Symbols Nerd Font 11.5";
     vertical-align: 0.5;
 }
 
@@ -80,7 +81,7 @@ entry {
     text-color: #ffffff;
     placeholder: "Search wallpapers (Gruvbox, Nord, Catppuccin, Dark...)...";
     placeholder-color: #6b7280;
-    font: "0xProto Nerd Font 10.5";
+    font: "0xProto Nerd Font 10.5, Symbols Nerd Font 10.5";
     vertical-align: 0.5;
 }
 
@@ -176,12 +177,12 @@ element-text {
     text-color: inherit;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    font: "0xProto Nerd Font 9.5";
+    font: "0xProto Nerd Font 9.5, Symbols Nerd Font 9.5";
     padding: 4px 0px;
 }
 
 element selected element-text {
     background-color: transparent;
     text-color: #ffffff;
-    font: "0xProto Nerd Font Bold 9.5";
+    font: "0xProto Nerd Font Bold 9.5, Symbols Nerd Font 9.5";
 }
