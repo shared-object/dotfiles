@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-# Toggle wshowkeys on-screen keypress display
-if pidof wshowkeys >/dev/null 2>&1; then
-    killall wshowkeys
-else
-    wshowkeys -a bottom -m 50 &
-fi
+#! /bin/sh
+
+[ -f /tmp/wshowkeys.pid ] && kill "$(cat /tmp/wshowkeys.pid)" && rm /tmp/wshowkeys.pid || { wshowkeys -a top -a left -m 10 -l 20 & echo $! > /tmp/wshowkeys.pid; }
