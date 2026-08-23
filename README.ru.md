@@ -61,7 +61,10 @@ sudo xbps-install -Sy \
    meson setup build --buildtype=release
    ninja -C build
    sudo ninja -C build install
+   sudo chmod u+s /usr/local/bin/wshowkeys
    ```
+   > [!NOTE]
+   > Бинарнику `wshowkeys` необходим setuid-бит (`sudo chmod u+s /usr/local/bin/wshowkeys`) для чтения событий ввода ядра (`/dev/input/event*`) в Wayland. Сразу после открытия устройств ввода привилегии сбрасываются.
 
 3. **Vicinae** (лаунчер приложений):
    Доступен в виде бинарника / сборки: [Vicinae GitHub](https://github.com/vicinaehq/vicinae).

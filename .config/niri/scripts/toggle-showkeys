@@ -1,6 +1,7 @@
-#!/bin/sh
-if pgrep -x wshowkeys >/dev/null 2>&1; then
-    pkill -x wshowkeys
+#!/usr/bin/env bash
+# Toggle wshowkeys on-screen keypress display
+if pidof wshowkeys >/dev/null 2>&1; then
+    killall wshowkeys
 else
-    wshowkeys -a bottom -m 30 -t 2.0 &
+    wshowkeys -a bottom -m 50 &
 fi

@@ -61,7 +61,10 @@ sudo xbps-install -Sy \
    meson setup build --buildtype=release
    ninja -C build
    sudo ninja -C build install
+   sudo chmod u+s /usr/local/bin/wshowkeys
    ```
+   > [!NOTE]
+   > `wshowkeys` requires the setuid bit (`sudo chmod u+s /usr/local/bin/wshowkeys`) to read input events from `/dev/input/event*` on Wayland. Permissions are dropped immediately after startup.
 
 3. **Vicinae** (Application launcher):
    Prebuilt binary or source build available at [Vicinae GitHub](https://github.com/vicinaehq/vicinae).
