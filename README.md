@@ -22,7 +22,7 @@ Features dynamic wallpaper theming via **Wallust**, translucent Material Design 
 | **Wallpaper** | [awww](https://github.com/phisch/awww) | Animated Wayland wallpaper daemon |
 | **Launcher** | [Vicinae](https://github.com/vicinaehq/vicinae) | Fast Wayland application launcher (`MOD+D`) |
 | **Lock Screen** | [gtklock](https://github.com/jovanlanik/gtklock) | Lockscreen with dynamic background & Wallust styling (`MOD+SHIFT+Q`) |
-| **Keypress OSD** | [wshowkeys](https://github.com/ammgws/wshowkeys) | Onscreen keypress visualizer (`MOD+SHIFT+V`) |
+| **Keypress OSD** | [wshowkeys](https://github.com/DreamMaoMao/wshowkeys) | Onscreen keypress visualizer (`MOD+SHIFT+V`) |
 | **Browser** | [Luakit](https://luakit.github.io/) | Keyboard-driven WebKit browser with Wallust theme & `Ctrl+C` copy |
 | **Editor** | [Neovim](https://neovim.io/) | Configured via [kickstart.nvim](https://github.com/shared-object/kickstart.nvim) (Git Submodule) |
 | **Audio / Video** | [PipeWire](https://pipewire.org/) + WirePlumber | Low-latency audio server with direct IPC to status bars |
@@ -56,7 +56,7 @@ sudo xbps-install -Sy \
 
 2. **wshowkeys** (Keypress OSD for `MOD+SHIFT+V`):
    ```bash
-   git clone https://github.com/ammgws/wshowkeys.git
+   git clone https://github.com/DreamMaoMao/wshowkeys.git
    cd wshowkeys
    meson setup build --buildtype=release
    ninja -C build

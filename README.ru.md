@@ -22,7 +22,7 @@
 | **Wallpaper** | [awww](https://github.com/phisch/awww) | Анимированный Wayland wallpaper daemon |
 | **Launcher** | [Vicinae](https://github.com/vicinaehq/vicinae) | Современный Wayland Application Launcher (`MOD+D`) |
 | **Lock Screen** | [gtklock](https://github.com/jovanlanik/gtklock) | Экран блокировки с поддержкой обоев и тем Wallust (`MOD+SHIFT+Q`) |
-| **Keypress OSD** | [wshowkeys](https://github.com/ammgws/wshowkeys) | Экранное отображение нажатых клавиш (`MOD+SHIFT+V`) |
+| **Keypress OSD** | [wshowkeys](https://github.com/DreamMaoMao/wshowkeys) | Экранное отображение нажатых клавиш (`MOD+SHIFT+V`) |
 | **Browser** | [Luakit](https://luakit.github.io/) | Клавиатурный WebKit-браузер с темой Wallust и `Ctrl+C` копированием |
 | **Editor** | [Neovim](https://neovim.io/) | Конфигурация [kickstart.nvim](https://github.com/shared-object/kickstart.nvim) (Git Submodule) |
 | **Audio / Video** | [PipeWire](https://pipewire.org/) + WirePlumber | Современный звуковой сервер с прямым IPC в статус-бары |
@@ -56,7 +56,7 @@ sudo xbps-install -Sy \
 
 2. **wshowkeys** (экранное отображение клавиш для биндинга `MOD+SHIFT+V`):
    ```bash
-   git clone https://github.com/ammgws/wshowkeys.git
+   git clone https://github.com/DreamMaoMao/wshowkeys.git
    cd wshowkeys
    meson setup build --buildtype=release
    ninja -C build
