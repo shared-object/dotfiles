@@ -1,4 +1,4 @@
-# 🌌 Niri Wayland Dotfiles
+# Niri Wayland Dotfiles
 
 [English](README.md) | [Русский](README.ru.md)
 
@@ -8,7 +8,7 @@ Features dynamic wallpaper theming via **Wallust**, translucent Material Design 
 
 ---
 
-## 📸 Key Components
+## Key Components
 
 | Component | Software | Description |
 |---|---|---|
@@ -29,7 +29,7 @@ Features dynamic wallpaper theming via **Wallust**, translucent Material Design 
 
 ---
 
-## 📦 Dependency Installation
+## Dependency Installation
 
 ### 1. System Packages (Void Linux XBPS)
 
@@ -77,7 +77,7 @@ sudo xbps-install -Sy \
 
 ---
 
-## 🚀 Dotfiles Installation
+## Dotfiles Installation
 
 ### Automated Installation
 
@@ -108,7 +108,7 @@ make clean    # Remove compiled binaries
 
 ---
 
-## 📊 Status Bars: Waybar & Yambar
+## Status Bars: Waybar & Yambar
 
 This configuration includes support for two distinct status bars powered by custom lightweight C daemons:
 
@@ -124,7 +124,7 @@ This configuration includes support for two distinct status bars powered by cust
   * `volume` — Direct PipeWire IPC volume and mute monitor.
   * `mic` — Direct PipeWire IPC microphone status monitor.
 
-### 🔄 Switching Between Bars
+### Switching Between Bars
 In `~/.config/niri/config.kdl` under the `Startup Applications` section:
 ```kdl
 // For Waybar:
@@ -136,7 +136,7 @@ spawn-at-startup "waybar"
 
 ---
 
-## 🌐 Luakit Web Browser
+## Luakit Web Browser
 
 [Luakit](https://luakit.github.io/) is optimized for keyboard-centric web browsing:
 * **Wallust Theming**: Color palettes for tabs, status bar, completion menu, and link hints are automatically synchronized with the active wallpaper through `colors.lua` and `theme.lua`.
@@ -145,7 +145,7 @@ spawn-at-startup "waybar"
 
 ---
 
-## 🎨 Dynamic Theming & Wallpapers
+## Dynamic Theming & Wallpapers
 
 When a wallpaper changes, the `theme-sync.sh` script:
 1. Analyzes the image color distribution.
@@ -161,11 +161,11 @@ When a wallpaper changes, the `theme-sync.sh` script:
 
 ---
 
-## ⌨️ Default Keybindings (Niri)
+## Default Keybindings (Niri)
 
 Default modifier (`MOD`): `Super` (Windows key).
 
-### 🚀 Application Shortcuts
+### Application Shortcuts
 | Keybinding | Action |
 |---|---|
 | `MOD + Enter` | Open terminal (`foot`) |
@@ -177,7 +177,7 @@ Default modifier (`MOD`): `Super` (Windows key).
 | `MOD + Shift + Q` | Lock screen (`gtklock`) |
 | `MOD + Shift + Esc` | Niri keybindings overlay cheatsheet |
 
-### 🪟 Window Management
+### Window Management
 | Keybinding | Action |
 |---|---|
 | `MOD + Q` | Close active window |
@@ -186,7 +186,7 @@ Default modifier (`MOD`): `Super` (Windows key).
 | `MOD + J` / `MOD + K` | Switch workspaces (down / up) |
 | `MOD + Space` | Switch keyboard layout (`us, ru, ua`) |
 
-### 🔊 Media & Audio Controls
+### Media & Audio Controls
 | Key | Action |
 |---|---|
 | `XF86AudioRaiseVolume` | Increase volume (`wpctl`) |
@@ -198,7 +198,7 @@ Default modifier (`MOD`): `Super` (Windows key).
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 dotfiles/
