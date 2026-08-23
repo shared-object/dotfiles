@@ -44,8 +44,8 @@
     },
     {
       "type": "packages",
-      "format": "{} (pacman)",
       "key": "Pkgs  ",
+      "xbps": true,
       "keyColor": "35"
     },
     {
