@@ -7,4 +7,10 @@ if status is-interactive
     end
 end
 
-set -gx PATH "$HOME/.cargo/bin" "$HOME/.local/bin" $PATH
+
+set -gx PATH "/home/xllwhoami/.cargo/bin" "$PATH"
+
+zoxide init fish | source
+alias cd=z
+# Added by Antigravity CLI installer
+set -gx PATH "/home/xllwhoami/.local/bin" $PATH
